@@ -1,11 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_login_ui/common/theme_helper.dart';
-import 'package:flutter_login_ui/pages/widgets/header_widget.dart';
+import 'package:mobile/common/theme_helper.dart';
+import 'package:mobile/widgets/header_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
-
 import 'profile_page.dart';
 
 class RegistrationPage extends  StatefulWidget{
