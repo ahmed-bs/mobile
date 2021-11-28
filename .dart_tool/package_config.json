@@ -68,6 +68,30 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///C:/Users/Ilhem/Desktop/flutter/flutter/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "font_awesome_flutter",
+      "rootUri": "file:///C:/Users/Ilhem/Desktop/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-9.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "hexcolor",
+      "rootUri": "file:///C:/Users/Ilhem/Desktop/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/hexcolor-2.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "js",
+      "rootUri": "file:///C:/Users/Ilhem/Desktop/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///C:/Users/Ilhem/Desktop/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/lints-1.0.1",
       "packageUri": "lib/",
@@ -82,6 +106,12 @@
     {
       "name": "meta",
       "rootUri": "file:///C:/Users/Ilhem/Desktop/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "otp_text_field",
+      "rootUri": "file:///C:/Users/Ilhem/Desktop/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/otp_text_field-1.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -152,7 +182,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-11-07T23:18:49.119030Z",
+  "generated": "2021-11-28T21:37:11.967211Z",
   "generator": "pub",
   "generatorVersion": "2.14.4"
 }
