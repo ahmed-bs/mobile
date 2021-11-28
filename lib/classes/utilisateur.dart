@@ -1,5 +1,5 @@
 
-class utilisateur {
+class Utilisateur {
 
 
   String  _nom;
@@ -11,12 +11,12 @@ String  _email;
 
   //constarctor
 
-  Transacition(this._nom,this._prenom, this._adresse,this._telephone, this_email);
+  Utilisateur(this._nom,this._prenom, this._adresse,this._telephone, this._email);
 
 
 
 
-  set nom(int value) {
+  set nom(String value) {
      _nom = value;
   }
 
@@ -28,7 +28,7 @@ String  _email;
      _adresse = value;
   }
 
-  set telephone(int value) {
+  set telephone(String value) {
     _telephone = value;
   }
 
@@ -44,13 +44,13 @@ String  _email;
   // getters
   String get nom => _nom;
 
-  int get prenom => _prenom;
+  String get prenom => _prenom;
 
   String get adresse => _adresse;
 
   String get telephone => _telephone;
 
-  int get email => _email;
+  String get email => _email;
 
 
 

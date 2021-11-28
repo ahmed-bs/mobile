@@ -1,7 +1,7 @@
-import 'package:mobile/classes/utilisateur.dart';
+import 'package:mobile/classes/Utilisateur.dart';
 
-class admin extends utilisateur {
+class Admin extends Utilisateur {
 
-  admin(String nom,String prenom,String adresse,String telephone,String email)
+  Admin(String nom,String prenom,String adresse,String telephone,String email)
       : super(nom,prenom,adresse,telephone,email);
 }
