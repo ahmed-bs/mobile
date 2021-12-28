@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/common/theme_helper.dart';
+import 'package:mobile/widgets/bottomnav.dart';
 
 
 import 'profile_page.dart';
@@ -66,6 +67,7 @@ class _LoginPageState extends State<LoginPage>{
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
                             ),
                             Container(
+                               margin: EdgeInsets.fromLTRB(5,20,10,20),
                               decoration: ThemeHelper().buttonBoxDecoration(context),
                               child: ElevatedButton(
                                 style: ThemeHelper().buttonStyle(),
@@ -75,7 +77,7 @@ class _LoginPageState extends State<LoginPage>{
                                 ),
                                 onPressed: (){
                                   //After successful login we will redirect to profile page. Let's create profile page now
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Nav()));
                                 },
                               ),
                             ),
