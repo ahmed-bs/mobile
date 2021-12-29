@@ -59,8 +59,14 @@ class NavigationDrawerWidget extends State<NavigationDrawer> {
           Divider(),
           ListTile(
             leading: Icon(Icons.person_rounded),
-            title: Text('stat'),
-           onTap: () => null,
+            title: Text('utilisateur'),
+           onTap: ()  {
+             Navigator.push(
+                 context,
+                 MaterialPageRoute(
+                     builder: (context) =>
+                         AfficheUtili(title: 'utilisateur',)));
+           },
                             ),
           ListTile(
             leading: Icon(Icons.delete),
