@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:mobile/category/addcat.dart';
-import 'package:mobile/models/categories.dart';
-import 'package:mobile/service/api.dart';
+import 'package:mobileprojet/category/addcat.dart';
+import 'package:mobileprojet/models/categories.dart';
+import 'package:mobileprojet/services/api.dart';
 
 import 'dart:async';
 

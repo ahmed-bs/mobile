@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-
-import 'login_page.dart';
+import 'package:mobileprojet/login_page.dart';
 
 
 
@@ -11,8 +10,8 @@ void main() {
 
 class LoginUiApp extends StatelessWidget {
 
-  Color _primaryColor = HexColor('#6b62c7');
-  Color _accentColor = HexColor('#232043');
+  Color _primaryColor = HexColor('#232043');
+  Color _accentColor = HexColor('#6b62c7');
 
   // Design color
   // Color _primaryColor= HexColor('#FFC867');
@@ -29,15 +28,17 @@ class LoginUiApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
-      title: 'Flutter Login UI',
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter',
       theme: ThemeData(
         primaryColor: _primaryColor,
         accentColor: _accentColor,
         scaffoldBackgroundColor: Colors.grey.shade100,
-        primarySwatch: Colors.grey,
+        primarySwatch: Colors.indigo,
       ),
-      home: LoginPage()
+      home: const LoginPage()
     );
   }
 }

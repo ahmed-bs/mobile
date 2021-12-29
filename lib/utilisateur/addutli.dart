@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:mobile/models/utilisateur.dart';
-import 'package:mobile/service/api_utli.dart';
+import 'package:mobileprojet/models/utilisateur.dart';
+import 'package:mobileprojet/services/api_utli.dart';
 
 
 class Addutili extends StatefulWidget {
@@ -201,7 +201,9 @@ class _AddutiliState extends State<Addutili> {
                                   if (_addFormKey.currentState!.validate()) {
                                     _addFormKey.currentState!.save();
                                     api.createCase(Utilisateur(nom: _nameController.text,prenom: _prenomController.text,adresse: _adresseController.text,telephone: _telephoneController.text ,email: _emailController.text,username: _usernameController.text ,password: _passwordController.text  ,role:'',id: ''));
-
+                                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                      content: Text("add successful"),
+                                       ));
                                     Navigator.pop(context) ;
                                   }
                                 },

@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mobile/widgets/navigation_drawer_widget.dart';
-import 'package:mobile/profile_page.dart';
+import 'package:mobileprojet/pages/options.dart';
+import 'package:mobileprojet/pages/stat.dart';
+import 'package:mobileprojet/pages/utilisateur.dart';
+import 'package:mobileprojet/transaction/affichetrans.dart';
+import 'package:mobileprojet/widgets/navigation_drawer_widget.dart';
+import 'package:mobileprojet/widgets/profile_page.dart';
 
 class Nav extends StatefulWidget {
   @override
@@ -12,8 +16,12 @@ class Nav extends StatefulWidget {
 
 class _NavState extends State<Nav> {
   int _selectedIndex = 0;
-  List<Widget> _widgetOptions = <Widget>[
+  final List<Widget> _widgetOptions = <Widget>[
    
+      home(title: '',), 
+      HomePage(), 
+      utilisateur(title: '',),  
+      MyApp(), 
   ];
 
   void _onItemTap(int index) {
@@ -24,6 +32,7 @@ class _NavState extends State<Nav> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       drawer: const NavigationDrawer(),
       appBar: AppBar(

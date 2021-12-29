@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/models/categories.dart';
-import 'package:mobile/service/api.dart';
+import 'package:mobileprojet/models/categories.dart';
+import 'package:mobileprojet/services/api.dart';
 
 
 
@@ -81,7 +81,9 @@ class _EditcatState extends State<Editcat> {
                                   if (_addFormKey.currentState!.validate()) {
                                     _addFormKey.currentState!.save();
                                     api.updateCases(id, Categories(nomcat: _nameController.text, id: ''));
-
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text("update successful"),
+                                  ));
                                     Navigator.pop(context) ;
                                   }
                                 },

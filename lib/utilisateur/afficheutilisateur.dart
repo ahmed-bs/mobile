@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/models/utilisateur.dart';
+import 'package:mobileprojet/models/utilisateur.dart';
 
 import 'dart:async';
-import 'package:mobile/service/api_utli.dart';
-import 'package:mobile/utilisateur/addutli.dart';
-import 'package:mobile/utilisateur/utilisateurlist.dart';
+import 'package:mobileprojet/services/api_utli.dart';
+import 'package:mobileprojet/utilisateur/addutli.dart';
+import 'package:mobileprojet/utilisateur/utilisateurlist.dart';
 
 
 

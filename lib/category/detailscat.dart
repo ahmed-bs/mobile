@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/category/afiichecat.dart';
-import 'package:mobile/category/editcat.dart';
-import 'package:mobile/models/categories.dart';
-import 'package:mobile/service/api.dart';
+import 'package:mobileprojet/category/afiichecat.dart';
+import 'package:mobileprojet/category/editcat.dart';
+import 'package:mobileprojet/models/categories.dart';
+import 'package:mobileprojet/services/api.dart';
 
 
 
@@ -31,6 +31,7 @@ class _DetailscatState extends State<Detailscat> {
         child: Container(
           padding: EdgeInsets.all(20.0),
           child: Card(
+             clipBehavior: Clip.antiAlias,
               child: Container(
                   padding: EdgeInsets.all(10.0),
                   width: 440,
@@ -113,11 +114,17 @@ class _DetailscatState extends State<Detailscat> {
               child: Text('Yes'),
               onPressed: () {
                 api.deleteCase(widget.categories.id);
-                    Navigator.push(
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text("delete successful"),
+    ));
+                  Navigator.pop(context) ;
+                /*   Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                     AfficheCat(title: 'cat',)));
+                                     AfficheCat(title: 'cat',)));*/
+                                   //    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                                   //  AfficheCat(title: 'cat',)), (Route<dynamic> route) => true);
               },
             ),
             FlatButton(

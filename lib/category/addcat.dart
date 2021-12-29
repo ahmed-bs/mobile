@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/models/categories.dart';
-import 'package:mobile/service/api.dart';
-
+import 'package:mobileprojet/models/categories.dart';
+import 'package:mobileprojet/services/api.dart';
 
 
 class Addcat extends StatefulWidget {
@@ -69,7 +68,9 @@ class _AddcatState extends State<Addcat> {
                                   if (_addFormKey.currentState!.validate()) {
                                     _addFormKey.currentState!.save();
                                     api.createCase(Categories(nomcat: _nameController.text, id: ''));
-
+                                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                   content: Text("add successful"),
+                                     ));
                                     Navigator.pop(context) ;
                                   }
                                 },

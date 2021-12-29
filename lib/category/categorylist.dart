@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/category/detailscat.dart';
-import 'package:mobile/models/categories.dart';
+import 'package:mobileprojet/category/detailscat.dart';
+import 'package:mobileprojet/models/categories.dart';
 
 
 
@@ -17,6 +17,7 @@ class CategoryList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return
               Card(
+              clipBehavior: Clip.antiAlias,
                   child: InkWell(
                     onTap: () {
                       Navigator.push(
@@ -26,7 +27,7 @@ class CategoryList extends StatelessWidget {
                       );
                     },
                     child: ListTile(
-                      leading: Icon(Icons.person),
+                      leading: Icon(Icons.list),
                       title: Text(categories[index].nomcat),
                       
                     ),

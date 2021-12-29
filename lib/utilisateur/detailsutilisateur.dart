@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/models/utilisateur.dart';
+import 'package:mobileprojet/models/utilisateur.dart';
 
-import 'package:mobile/service/api_utli.dart';
-import 'package:mobile/utilisateur/afficheutilisateur.dart';
-import 'package:mobile/utilisateur/editutli.dart';
+import 'package:mobileprojet/services/api_utli.dart';
+import 'package:mobileprojet/utilisateur/afficheutilisateur.dart';
+import 'package:mobileprojet/utilisateur/editutli.dart';
 
 
 
@@ -160,12 +160,23 @@ class _DetailsutliState extends State<Detailsutli> {
               child: Text('Yes'),
               onPressed: () {
                 api.deleteCase(widget.utilisateur.id);
-               // Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
-                Navigator.push(
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                 content: Text("delete successful"),
+    ));
+                  Navigator.pop(context) ;
+              //  Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
+                                 /*  Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                     AfficheUtili(title: 'utilisateur',)));
+                                     AfficheUtili(title: 'utilisateur',)));*/
+                                      // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                                      //AfficheUtili(title: 'utilisateur',)), (Route<dynamic> route) => true);
+                                    /*  Navigator.pushAndRemoveUntil(
+    context,   
+    MaterialPageRoute(builder: (BuildContext context) => AfficheUtili(title: 'utilisateur',)), 
+    ModalRoute.withName('/')
+);*/
               },
             ),
             FlatButton(

@@ -1,12 +1,12 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
-import 'package:mobile/category/afiichecat.dart';
-import 'package:mobile/login_page.dart';
-import 'package:mobile/pages/data.dart';
-import 'package:mobile/transaction/affichetrans.dart';
-import 'package:mobile/utilisateur/afficheutilisateur.dart';
-import 'package:mobile/widgets/bottomnav.dart';
+import 'package:mobileprojet/category/afiichecat.dart';
+import 'package:mobileprojet/login_page.dart';
+import 'package:mobileprojet/pages/data.dart';
+import 'package:mobileprojet/transaction/affichetrans.dart';
+import 'package:mobileprojet/utilisateur/afficheutilisateur.dart';
+import 'package:mobileprojet/widgets/bottomnav.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class NavigationDrawer extends StatefulWidget {

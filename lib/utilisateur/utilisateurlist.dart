@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:mobile/models/utilisateur.dart';
-import 'package:mobile/utilisateur/detailsutilisateur.dart';
+import 'package:mobileprojet/models/utilisateur.dart';
+import 'package:mobileprojet/utilisateur/detailsutilisateur.dart';
 
 
 
@@ -18,6 +18,7 @@ class UtilisateurList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return
               Card(
+                 clipBehavior: Clip.antiAlias,
                   child: InkWell(
                     onTap: () {
                       Navigator.push(
@@ -28,7 +29,7 @@ class UtilisateurList extends StatelessWidget {
                     },
                     child: ListTile(
                       leading: Icon(Icons.person),
-                      title: Text(utilisateur[index].nom+utilisateur[index].prenom),
+                      title: Text(utilisateur[index].nom+'  '+utilisateur[index].prenom),
                       subtitle:Text(utilisateur[index].email) ,
                     ),
                   )

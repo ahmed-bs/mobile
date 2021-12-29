@@ -36,6 +36,13 @@ class  Utilisateur{
 
     );
   }
+
+  void set password(String password) {
+    password =  password;
+  }
+  void set email(String email) {
+    email = email;
+  }
      @override
   String toString() {
     return 'Trans{id: $id, nom: $nom, prenom: $prenom,adresse: $adresse,telephone: $telephone,email: $email,username: $username,password: $password,role: $role }';

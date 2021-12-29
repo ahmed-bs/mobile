@@ -1,11 +1,16 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/common/theme_helper.dart';
-import 'package:mobile/widgets/header_widget.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'profile_page.dart';
+import 'package:mobileprojet/common/theme_helper.dart';
+import 'package:mobileprojet/widgets/bottomnav.dart';
+import 'package:mobileprojet/widgets/header_widget.dart';
+import 'package:http/http.dart' as http;
+
+
+
 
 class RegistrationPage extends  StatefulWidget{
   @override
@@ -17,8 +22,43 @@ class RegistrationPage extends  StatefulWidget{
 class _RegistrationPageState extends State<RegistrationPage>{
 
   final _formKey = GlobalKey<FormState>();
+   final _nameController = TextEditingController();
+  final _prenomController = TextEditingController();
+  final _adresseController = TextEditingController();
+  final _telephoneController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
   bool checkedValue = false;
   bool checkboxValue = false;
+    Future save(String nom , String prenom ,String adresse,String telephone,String email,String username,String password) async {
+    var res = await http.post("http://192.168.1.161:3000/api/utilisateur/signup",
+        headers: <String, String>{
+          'Context-Type': 'application/json;charSet=UTF-8'
+        },
+        body: <String, String>{
+         'nom': nom,
+        'prenom': prenom,
+        'adresse': adresse,
+        'telephone': telephone,
+        'email': email,
+        'username': username,
+        'password': password
+        });
+    print(res.body);
+    if (res.statusCode ==200){
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) => Nav()));
+        Fluttertoast.showToast(
+        msg: "register successful",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1
+    );
+    }
+  }
+
+  //User user = User('', '');
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +119,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                         SizedBox(height: 30,),
                         Container(
                           child: TextFormField(
+                             controller:_nameController,
                             decoration: ThemeHelper().textInputDecoration('First Name', 'Enter your first name'),
                           ),
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
@@ -86,13 +127,31 @@ class _RegistrationPageState extends State<RegistrationPage>{
                         SizedBox(height: 30,),
                         Container(
                           child: TextFormField(
+                             controller: _prenomController,
                             decoration: ThemeHelper().textInputDecoration('Last Name', 'Enter your last name'),
+                          ),
+                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
+                        ),
+                          SizedBox(height: 30,),
+                        Container(
+                          child: TextFormField(
+                             controller: _adresseController,
+                            decoration: ThemeHelper().textInputDecoration('adresse', 'Enter your adresse'),
+                          ),
+                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
+                        ),
+                          SizedBox(height: 30,),
+                        Container(
+                          child: TextFormField(
+                             controller: _usernameController,
+                            decoration: ThemeHelper().textInputDecoration('user name', 'Enter your user name'),
                           ),
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
                         SizedBox(height: 20.0),
                         Container(
                           child: TextFormField(
+                             controller: _emailController,
                             decoration: ThemeHelper().textInputDecoration("E-mail address", "Enter your email"),
                             keyboardType: TextInputType.emailAddress,
                             validator: (val) {
@@ -107,6 +166,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                         SizedBox(height: 20.0),
                         Container(
                           child: TextFormField(
+                             controller: _telephoneController,
                             decoration: ThemeHelper().textInputDecoration(
                                 "Mobile Number",
                                 "Enter your mobile number"),
@@ -120,10 +180,12 @@ class _RegistrationPageState extends State<RegistrationPage>{
                           ),
                           decoration: ThemeHelper().inputBoxDecorationShaddow(),
                         ),
+                        
                         SizedBox(height: 20.0),
                         Container(
                           child: TextFormField(
                             obscureText: true,
+                             controller: _passwordController,
                             decoration: ThemeHelper().textInputDecoration(
                                 "Password*", "Enter your password"),
                             validator: (val) {
@@ -190,12 +252,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
                             ),
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
-                                Navigator.of(context).pushAndRemoveUntil(
-                                    MaterialPageRoute(
-                                        builder: (context) => ProfilePage()
-                                    ),
-                                        (Route<dynamic> route) => false
-                                );
+                             save(_nameController.text, _prenomController.text,_adresseController.text,_telephoneController.text ,_emailController.text,_usernameController.text , _passwordController.text );
                               }
                             },
                           ),

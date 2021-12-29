@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/widgets/bottomnav.dart';
+import 'package:mobileprojet/widgets/bottomnav.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -108,11 +108,46 @@ final _passwordController=TextEditingController();
                             save(_emailController.text,_passwordController.text);
                           
                         },
-                                   
+                                   // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Nav()));
                               ),
                         
                             ),
-                          
+                            /*  SizedBox(height: 30.0),
+                            Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: TextField(
+              
+                                controller: _emailController,
+                                decoration: ThemeHelper().textInputDecoration('email', 'Enter your email'),
+                              ),
+
+                             ),
+                             SizedBox(height: 30.0),
+                            Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: TextField(
+                                obscureText: true,
+                                controller: _passwordController,
+                                decoration: ThemeHelper().textInputDecoration('Password', 'Enter your password'),
+                              ),
+
+                             ),
+                           SizedBox(
+                             height: 60,
+                             width:MediaQuery.maybeOf(context)!.size.width ,
+                             child: RaisedButton(
+                               child: Text("sign in"),
+                          onPressed: _emailController.text==""||_passwordController.text=="" 
+                                ? null:(){
+                                  setState(() {
+                                    _isLoading=true;
+                                  });
+                                  signIn(_emailController.text, _passwordController.text);
+                                },
+                                   // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Nav()));
+                              
+                             ),
+                           ),*/
                             Container(
                               margin: EdgeInsets.fromLTRB(5,20,10,20),
                               //child: Text('Don\'t have an account? Create'),
