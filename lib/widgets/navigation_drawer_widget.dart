@@ -1,6 +1,8 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:mobile/category/afiichecat.dart';
+import 'package:mobile/transaction/affichetrans.dart';
 
 class NavigationDrawer extends StatefulWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
@@ -32,12 +34,26 @@ class NavigationDrawerWidget extends State<NavigationDrawer> {
           ),
            ListTile(
             leading: Icon(Icons.home),
-            title: Text('transaction'),
-             onTap: ()  => null,),
+            title: Text('category'),
+             onTap: () 
+               {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                    
+                                     AfficheCat(title: 'category',)));
+                            },),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('compte'),
-             onTap: ()   => null,
+            title: Text('transactions'),
+             onTap: ()  {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                     Affichetrans(title: 'transactions',)));
+                            },
           ),
          
           Divider(),
