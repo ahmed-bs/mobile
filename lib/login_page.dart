@@ -1,14 +1,15 @@
+import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/common/theme_helper.dart';
 import 'package:mobile/widgets/bottomnav.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
-
-import 'profile_page.dart';
+import 'common/theme_helper.dart';
 import 'registration_page.dart';
-import 'widgets/header_widget.dart';
+import '../widgets/header_widget.dart';
 
 class LoginPage extends StatefulWidget{
   const LoginPage({Key? key}): super(key:key);
@@ -16,11 +17,32 @@ class LoginPage extends StatefulWidget{
   @override
   _LoginPageState createState() => _LoginPageState();
 }
-
 class _LoginPageState extends State<LoginPage>{
   double _headerHeight = 250;
   Key _formKey = GlobalKey<FormState>();
 
+final _emailController=TextEditingController();
+final _passwordController=TextEditingController();
+
+    Future save(String email,String password ) async {
+    var res = await http.post("http://192.168.1.161:3000/api/utilisateur/login",
+        headers: <String, String>{
+          'Context-Type': 'application/json;charSet=UTF-8'
+        },
+        body: <String, String>{
+          'email': email,
+          'password': password
+        });
+    print(res.body);
+    
+    if (res.statusCode ==200){
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) => Nav()));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text("login successful"),
+    ));
+    }
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -49,12 +71,14 @@ class _LoginPageState extends State<LoginPage>{
                     ),
                     SizedBox(height: 30.0),
                     Form(
-                      key: _formKey,
+                    key: _formKey,
                         child: Column(
                           children: [
                             Container(
                               child: TextField(
-                                decoration: ThemeHelper().textInputDecoration('User Name', 'Enter your user name'),
+                                controller: _emailController,
+                                decoration: ThemeHelper().textInputDecoration('User email', 'Enter your user name'),
+                               
                               ),
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
                             ),
@@ -62,12 +86,16 @@ class _LoginPageState extends State<LoginPage>{
                             Container(
                               child: TextField(
                                 obscureText: true,
+                                controller: _passwordController,
                                 decoration: ThemeHelper().textInputDecoration('Password', 'Enter your password'),
+                            
                               ),
                               decoration: ThemeHelper().inputBoxDecorationShaddow(),
                             ),
+
+
                             Container(
-                               margin: EdgeInsets.fromLTRB(5,20,10,20),
+                             margin: EdgeInsets.fromLTRB(5,20,10,20),
                               decoration: ThemeHelper().buttonBoxDecoration(context),
                               child: ElevatedButton(
                                 style: ThemeHelper().buttonStyle(),
@@ -75,12 +103,16 @@ class _LoginPageState extends State<LoginPage>{
                                   padding: EdgeInsets.fromLTRB(40, 10, 40, 10),
                                   child: Text('Sign In'.toUpperCase(), style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
                                 ),
-                                onPressed: (){
-                                  //After successful login we will redirect to profile page. Let's create profile page now
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Nav()));
-                                },
+                                onPressed: () {
+                         
+                            save(_emailController.text,_passwordController.text);
+                          
+                        },
+                                   
                               ),
+                        
                             ),
+                          
                             Container(
                               margin: EdgeInsets.fromLTRB(5,20,10,20),
                               //child: Text('Don\'t have an account? Create'),

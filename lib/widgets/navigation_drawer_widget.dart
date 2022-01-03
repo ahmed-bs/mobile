@@ -2,7 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:mobile/category/afiichecat.dart';
+import 'package:mobile/login_page.dart';
+import 'package:mobile/pages/data.dart';
 import 'package:mobile/transaction/affichetrans.dart';
+import 'package:mobile/utilisateur/afficheutilisateur.dart';
+import 'package:mobile/widgets/bottomnav.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NavigationDrawer extends StatefulWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
@@ -16,62 +21,79 @@ class NavigationDrawerWidget extends State<NavigationDrawer> {
   Widget build(BuildContext context) {
 
     return Drawer(
-      
+    
       child: ListView(
         // Remove padding
         padding: EdgeInsets.zero,
         children: [
-          Builder(
-            builder: (context) {
-              return UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(
-                   color: Colors.deepPurple,
-               ), accountEmail: null,
-                accountName: null,
-               
-              );
-            }
-          ),
+        SizedBox(height: 60.0),
+           Text(
+            '  money manager:',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.blueGrey),
+            
+                    ),
+           SizedBox(height: 10.0),
+            Divider(),
            ListTile(
-            leading: Icon(Icons.home),
-            title: Text('category'),
-             onTap: () 
-               {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                    
-                                     AfficheCat(title: 'category',)));
-                            },),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('transactions'),
-             onTap: ()  {
+            leading: Icon(Icons.attach_money_outlined),
+            title: Text('transaction'),
+             onTap: ()   {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
                                      Affichetrans(title: 'transactions',)));
-                            },
+                            }
+             
+             
+             ),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text('utilisateur'),
+             onTap: ()   {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                     AfficheUtili(title: 'utilisateur',)));
+                            }
           ),
+            ListTile(
+            leading: Icon(Icons.list),
+            title: Text('category'),
+           onTap: ()  {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                     AfficheCat(title: 'category',)));
+                            }
+                            ),
          
           Divider(),
-          ListTile(
-            leading: Icon(Icons.person_rounded),
-            title: Text('stat'),
-           onTap: () => null,
-                            ),
-          ListTile(
-            leading: Icon(Icons.delete),
-            title: Text('options'),
-            onTap: () => null,
+        
+            ListTile(
+            leading: Icon(Icons.calendar_today),
+            title: Text('calendar'),
+            onTap: ()  {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                     date(title: 'date',)));
+                            },
           ),
+           
           Divider(),
           ListTile(
             title: Text('logout'),
             leading: Icon(Icons.exit_to_app),
-            onTap: () => null,
+            onTap: ()  async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+         prefs.clear(); 
+        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+    LoginPage()), (Route<dynamic> route) => false);
+            },
           ),
         ],
       ),
