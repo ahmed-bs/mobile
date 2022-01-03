@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/models/transaction.dart';
-import 'package:mobile/transaction/detailstrans.dart';
+import 'package:mobileprojet/models/transaction.dart';
+import 'package:mobileprojet/transaction/detailstrans.dart';
 
 
 
@@ -19,6 +19,7 @@ class TransactionList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return
               Card(
+                clipBehavior: Clip.antiAlias,
                   child: InkWell(
                     onTap: () {
                       Navigator.push(
@@ -28,9 +29,10 @@ class TransactionList extends StatelessWidget {
                       );
                     },
                     child: ListTile(
-                      leading: Icon(Icons.person),
-                      title: Text(transaction[index].type + transaction[index].montant),
-                      subtitle:Text(transaction[index].day) ,
+                      leading: Icon(Icons.attach_money_outlined),
+                      title: Text(transaction[index].type + ':'+transaction[index].montant),
+                      subtitle:Text('a '+transaction[index].day) ,
+                     
                     ),
                   )
               );

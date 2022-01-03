@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/models/transaction.dart';
-import 'package:mobile/service/api_trans.dart';
+import 'package:mobileprojet/models/transaction.dart';
+
+import 'package:mobileprojet/models/utilisateur.dart';
+import 'package:mobileprojet/services/api_trans.dart';
+import 'package:mobileprojet/services/api_utli.dart';
+import 'package:intl/intl.dart';
+
 
 enum Type { revenu, depence,transfert }
 
@@ -22,10 +27,11 @@ class _EdittransState extends State<Edittrans> {
   String day = '';
   final _montantController = TextEditingController();
   final _descriptionsController = TextEditingController();
-//  final _typeController = TextEditingController();
+  final _dateController = TextEditingController();
   String type = 'revenu';
   Type _type = Type.revenu;
  
+
   
 
   @override
@@ -33,7 +39,7 @@ class _EdittransState extends State<Edittrans> {
     id = widget.transaction.id;
     _montantController.text = widget.transaction.montant;
    _descriptionsController.text = widget.transaction.descriptions;
-  //_typeController.text = widget.transaction.type;
+  _dateController.text = widget.transaction.day;
 type = widget.transaction.type;
     if(widget.transaction.type == 'revenu') {
       _type = Type.revenu;
@@ -104,28 +110,50 @@ type = widget.transaction.type;
                             ],
                           ),
                         ),
-              /* Container(
+               Container(
                           margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                           child: Column(
                             children: <Widget>[
-                              Text('type'),
+                              Text('date'),
                               TextFormField(
-                                controller: _typeController,
+                                controller: _dateController,
                                 decoration: const InputDecoration(
-                                  hintText: 'type',
+                                  hintText: 'date',
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'Please enter type';
+                                    return 'Please enter date';
                                   }
                                   return null;
                                 },
-                                onChanged: (value) {},
+                                 //readOnly: true,  //set it true, so that user will not able to edit text
+                onTap: () async {
+                  DateTime? pickedDate = await showDatePicker(
+                      context: context, initialDate: DateTime.now(),
+                      firstDate: DateTime(2000), //DateTime.now() - not to allow to choose before today.
+                      lastDate: DateTime(2101)
+                  );
+                  
+                  if(pickedDate != null ){
+                      print(pickedDate);  //pickedDate output format => 2021-03-10 00:00:00.000
+                      String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate); 
+                      print(formattedDate); //formatted date output using intl package =>  2021-03-16
+                        //you can implement different kind of Date Format here according to your requirement
+
+                      setState(() {
+                         _dateController.text = formattedDate; //set output date to TextField value. 
+                      });
+                  }else{
+                      print("Date is not selected");
+                  }
+                },
+                onChanged: (value) {},
                               ),
                             ],
                           ),
                         ),
-                         */
+                         
+
                          Container(
                           margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                           child: Column(
@@ -183,8 +211,10 @@ type = widget.transaction.type;
                                 onPressed: () {
                                   if (_addFormKey.currentState!.validate()) {
                                     _addFormKey.currentState!.save();
-                                    api.updateCases(id, Transaction(montant: _montantController.text,type: type ,descriptions: _descriptionsController.text ,day: '', id: ''));
-
+                                    api.updateCases(id, Transaction(montant: _montantController.text,type: type ,descriptions: _descriptionsController.text ,day: _dateController.text , id: ''));
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  content: Text("update successful"),
+                                  ));
                                     Navigator.pop(context) ;
                                   }
                                 },

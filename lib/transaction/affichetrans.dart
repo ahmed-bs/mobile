@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/models/transaction.dart';
-import 'package:mobile/service/api_trans.dart';
+import 'package:mobileprojet/models/transaction.dart';
+import 'package:mobileprojet/services/api_trans.dart';
 import 'dart:async';
-import 'package:mobile/transaction/addtrans.dart';
-import 'package:mobile/transaction/transactionlist.dart';
+import 'package:mobileprojet/transaction/addtrans.dart';
+import 'package:mobileprojet/transaction/transactionlist.dart';
 
 
 

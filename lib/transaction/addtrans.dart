@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/models/transaction.dart';
-import 'package:mobile/service/api_trans.dart';
+import 'package:mobileprojet/models/transaction.dart';
 
+import 'package:mobileprojet/models/utilisateur.dart';
+import 'package:mobileprojet/services/api_trans.dart';
+import 'package:mobileprojet/services/api_utli.dart';
 
 enum Type { revenu, depence,transfert }
 
@@ -161,7 +163,9 @@ class _AddtransState extends State<Addtrans> {
                                   if (_addFormKey.currentState!.validate()) {
                                     _addFormKey.currentState!.save();
                                     api.createCase(Transaction(type:type,montant: _montantController.text,descriptions: _descriptionsController.text,day:'',id: ''));
-
+                                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                   content: Text("add successful"),
+                               ));
                                     Navigator.pop(context) ;
                                   }
                                 },

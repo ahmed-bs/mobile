@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/models/transaction.dart';
-import 'package:mobile/service/api_trans.dart';
-import 'package:mobile/transaction/affichetrans.dart';
-import 'package:mobile/transaction/edittrans.dart';
+import 'package:mobileprojet/models/transaction.dart';
+import 'package:mobileprojet/models/utilisateur.dart';
+import 'package:mobileprojet/services/api_trans.dart';
+
+import 'package:mobileprojet/services/api_utli.dart';
+import 'package:mobileprojet/transaction/affichetrans.dart';
+import 'package:mobileprojet/transaction/edittrans.dart';
+import 'package:mobileprojet/utilisateur/editutli.dart';
 
 
 
@@ -141,11 +145,17 @@ class _DetailstransState extends State<Detailstrans> {
               child: Text('Yes'),
               onPressed: () {
                 api.deleteCase(widget.transaction.id);
-                   Navigator.push(
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                 content: Text("delete successful"),
+                       ));
+                  Navigator.pop(context) ;
+                /* Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                     Affichetrans(title: 'trans',)));
+                                     Affichetrans(title: 'trans',))); 
+                                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                                     Affichetrans(title: 'trans',)), (Route<dynamic> route) => true);*/
               },
             ),
             FlatButton(
