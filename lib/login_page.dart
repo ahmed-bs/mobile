@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:mobileprojet/widgets/bottomnav.dart';
+import 'package:mobile/widgets/bottomnav.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -25,7 +25,7 @@ final _emailController=TextEditingController();
 final _passwordController=TextEditingController();
 
     Future save(String email,String password ) async {
-    var res = await http.post("http://192.168.1.161:3000/api/utilisateur/login",
+    var res = await http.post("http://10.0.2.2:3000/api/utilisateur/login",
         headers: <String, String>{
           'Context-Type': 'application/json;charSet=UTF-8'
         },

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobileprojet/models/transaction.dart';
-import 'package:mobileprojet/transaction/detailstrans.dart';
+import 'package:mobile/models/transaction.dart';
+import 'package:mobile/transaction/detailstrans.dart';
 
 
 

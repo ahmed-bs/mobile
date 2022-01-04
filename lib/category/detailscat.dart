@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobileprojet/category/afiichecat.dart';
-import 'package:mobileprojet/category/editcat.dart';
-import 'package:mobileprojet/models/categories.dart';
-import 'package:mobileprojet/services/api.dart';
+import 'package:mobile/category/afiichecat.dart';
+import 'package:mobile/category/editcat.dart';
+import 'package:mobile/models/categories.dart';
+import 'package:mobile/services/api.dart';
 
 
 

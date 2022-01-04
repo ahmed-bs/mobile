@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobileprojet/models/transaction.dart';
+import 'package:mobile/models/transaction.dart';
 
-import 'package:mobileprojet/models/utilisateur.dart';
-import 'package:mobileprojet/services/api_trans.dart';
-import 'package:mobileprojet/services/api_utli.dart';
+import 'package:mobile/models/utilisateur.dart';
+import 'package:mobile/services/api_trans.dart';
+import 'package:mobile/services/api_utli.dart';
 import 'package:intl/intl.dart';
 
 

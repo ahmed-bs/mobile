@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:mobileprojet/models/transaction.dart';
-import 'package:mobileprojet/models/utilisateur.dart';
-import 'package:mobileprojet/services/api_trans.dart';
+import 'package:mobile/models/transaction.dart';
+import 'package:mobile/models/utilisateur.dart';
+import 'package:mobile/services/api_trans.dart';
 
-import 'package:mobileprojet/services/api_utli.dart';
-import 'package:mobileprojet/transaction/affichetrans.dart';
-import 'package:mobileprojet/transaction/edittrans.dart';
-import 'package:mobileprojet/utilisateur/editutli.dart';
+import 'package:mobile/services/api_utli.dart';
+import 'package:mobile/transaction/affichetrans.dart';
+import 'package:mobile/transaction/edittrans.dart';
+import 'package:mobile/utilisateur/editutli.dart';
 
 
 

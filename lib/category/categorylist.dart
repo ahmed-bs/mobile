@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobileprojet/category/detailscat.dart';
-import 'package:mobileprojet/models/categories.dart';
+import 'package:mobile/category/detailscat.dart';
+import 'package:mobile/models/categories.dart';
 
 
 

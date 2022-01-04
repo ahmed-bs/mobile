@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mobileprojet/pages/options.dart';
-import 'package:mobileprojet/pages/stat.dart';
-import 'package:mobileprojet/pages/utilisateur.dart';
-import 'package:mobileprojet/transaction/affichetrans.dart';
-import 'package:mobileprojet/widgets/navigation_drawer_widget.dart';
-import 'package:mobileprojet/widgets/profile_page.dart';
+import 'package:mobile/pages/options.dart';
+import 'package:mobile/pages/stat.dart';
+import 'package:mobile/pages/utilisateur.dart';
+import 'package:mobile/transaction/affichetrans.dart';
+import 'package:mobile/widgets/navigation_drawer_widget.dart';
+import 'package:mobile/widgets/profile_page.dart';
+
 
 class Nav extends StatefulWidget {
   @override

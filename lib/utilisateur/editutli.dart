@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:mobileprojet/models/utilisateur.dart';
-import 'package:mobileprojet/services/api_utli.dart';
+import 'package:mobile/models/utilisateur.dart';
+import 'package:mobile/services/api_utli.dart';
 
 
 

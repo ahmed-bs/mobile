@@ -1,11 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mobileprojet/models/utilisateur.dart';
+import 'package:mobile/models/utilisateur.dart';
 
 import 'dart:async';
-import 'package:mobileprojet/services/api_utli.dart';
-import 'package:mobileprojet/utilisateur/addutli.dart';
-import 'package:mobileprojet/utilisateur/utilisateurlist.dart';
+import 'package:mobile/services/api_utli.dart';
+import 'package:mobile/utilisateur/utilisateurlist.dart';
 
 
 
@@ -55,13 +54,6 @@ class _AfficheUtiliState extends State<AfficheUtili> {
             )
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _navigateToAddScreen(context);
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
@@ -75,10 +67,4 @@ class _AfficheUtiliState extends State<AfficheUtili> {
     return futureCases;
   }
 
-  _navigateToAddScreen (BuildContext context) async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => Addutili()),
-    );
-  }
 }

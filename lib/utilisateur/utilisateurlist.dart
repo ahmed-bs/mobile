@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:mobileprojet/models/utilisateur.dart';
-import 'package:mobileprojet/utilisateur/detailsutilisateur.dart';
+import 'package:mobile/models/utilisateur.dart';
+import 'package:mobile/utilisateur/detailsutilisateur.dart';
 
 
 

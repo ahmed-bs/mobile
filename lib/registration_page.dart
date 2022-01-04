@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:mobileprojet/common/theme_helper.dart';
-import 'package:mobileprojet/widgets/bottomnav.dart';
-import 'package:mobileprojet/widgets/header_widget.dart';
+import 'package:mobile/common/theme_helper.dart';
+import 'package:mobile/widgets/bottomnav.dart';
+import 'package:mobile/widgets/header_widget.dart';
 import 'package:http/http.dart' as http;
 
 
@@ -32,7 +32,7 @@ class _RegistrationPageState extends State<RegistrationPage>{
   bool checkedValue = false;
   bool checkboxValue = false;
     Future save(String nom , String prenom ,String adresse,String telephone,String email,String username,String password) async {
-    var res = await http.post("http://192.168.1.161:3000/api/utilisateur/signup",
+    var res = await http.post("http://10.0.2.2:3000/api/utilisateur/signup",
         headers: <String, String>{
           'Context-Type': 'application/json;charSet=UTF-8'
         },
